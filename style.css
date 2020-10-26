@@ -61,15 +61,6 @@ main {
   justify-content: center;
   align-items: center;
 }
-#person {
-  position: relative;
-  width: 109px;
-  height: 109px;
-  margin-bottom: 2.5rem;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.15);
-}
 #avatar {
   width: 100%;
   position: relative;

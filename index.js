@@ -107,6 +107,11 @@ form.addEventListener('submit', (event) => {
 
   if (isValidUrl(url)) {
     const typeURL = new URL(url);
+    if (typeURL.origin !== 'https://github.com') {
+      alert('Please enter a Github Organization URL');
+      return;
+    }
+
     let organization = typeURL.pathname.slice(1);
 
     if ([...organization][organization.length - 1] === '/') {
@@ -115,9 +120,10 @@ form.addEventListener('submit', (event) => {
 
     gatherData(organization)
       .then(createElements)
-      .catch((error) => console.log(`Error: ${error.message}`));
+      .catch((error) => alert(`Error: ${error.message}`));
   } else {
     alert('Please enter a valid URL');
+    return;
   }
 });
 
