@@ -6,7 +6,7 @@ Fetch and display an organizations contributors using the Github API.
 
 ## Issues
 
-There are issues with the [rate limits]("https://developer.github.com/v3/#rate-limiting") when fetching data without first authenticating.
+There are issues with the [rate limits](https://developer.github.com/v3/#rate-limiting) when fetching data without first authenticating.
 
 ## Code
 
