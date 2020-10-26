@@ -49,7 +49,7 @@ async function getAllContributors(urls) {
   promises.forEach((list) => {
     list.forEach((contributor) => {
       const { id, login, avatar_url: avatar, url } = contributor;
-      if (login.includes('bot')) return;
+      if (login.includes('dependabot')) return;
       contributors[`${id}`] = `${login}|${avatar}|${url}`;
     });
   });
