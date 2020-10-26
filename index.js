@@ -48,7 +48,7 @@ async function getAllContributors(urls) {
 
   promises.forEach(list => {
     list.forEach(contributor => {
-      const { id, login, avatar_url: avatar, url } = contributor;
+      const { id, login, avatar_url: avatar, html_url: url } = contributor;
       if (login.includes('dependabot')) return;
       contributors[`${id}`] = `${login}|${avatar}|${url}`;
     });
