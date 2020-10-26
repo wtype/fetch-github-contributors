@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  font-size: 10px;
+}
+::selection {
+  background: #665543;
+  color: white;
+}
+img::selection {
+  background: transparent;
+}
+:focus {
+  outline: 1px solid rgba(255, 255, 255, 0.3);
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: rgb(216, 223, 217);
+  background: linear-gradient(0deg, #4e391e 0%, #665543 40%, #b0aeaa 90%);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+main {
+  width: 100vw;
+  height: 100vh;
+}
+#background {
+  height: 101%;
+  min-width: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.overlay {
+  background: rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 98;
+  pointer-events: none;
+}
+.blur {
+  transform: scale(1.05);
+  filter: blur(1.5rem);
+}
+#panel {
+  position: absolute;
+  z-index: 99;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#person {
+  position: relative;
+  width: 109px;
+  height: 109px;
+  margin-bottom: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.15);
+}
+#avatar {
+  width: 100%;
+  position: relative;
+  pointer-events: none;
+}
+#panel h1 {
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  position: relative;
+  font-weight: 600;
+  font-size: 2.5rem;
+  letter-spacing: -0.05rem;
+  color: black;
+  cursor: default;
+  text-align: center;
+}
+form {
+  display: flex;
+}
+#panel input,
+#panel button {
+  position: relative;
+  background: rgba(200, 200, 200, 0.8);
+  box-shadow: 0px 0px 10px 5px rgba(150, 150, 150, 0.2);
+  font-size: 1.5rem;
+  border: none;
+  padding: 0.8rem 2rem 0.8rem 1.1rem;
+  color: black;
+  max-width: 260px;
+  letter-spacing: 0.05rem;
+}
+#panel button {
+  transition: 100ms;
+  cursor: pointer;
+  padding: 0.8rem 2rem 0.8rem 2rem;
+}
+#panel button:hover {
+  filter: brightness(1.2);
+}
+.contributors-list {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  columns: 2;
+}
+.contributor {
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1.25rem;
+  font-size: 1.25rem;
+  align-items: center;
+  color: white;
+}
+.contributor:hover {
+  color: red;
+}
+.contributor img {
+  border-radius: 100px;
+  width: 3rem;
+}

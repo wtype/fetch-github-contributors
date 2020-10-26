@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch Github Contributors</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="index.js"></script>
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+  </head>
+  <body>
+    <main role="main">
+      <div class="overlay"></div>
+      <img
+        id="background"
+        class="blur"
+        data-src="https://images.unsplash.com/photo-1569880980132-408a7a91ae33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60"
+        src="https://images.unsplash.com/photo-1569880980132-408a7a91ae33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=60"
+        alt="Beautiful green hill at the base of mountains."
+      />
+      <div id="panel">
+        <div class="flex">
+          <div id="person">
+            <img id="avatar" src="#" />
+          </div>
+          <h1>Find Github Contributors</h1>
+          <form>
+            <input
+              name="url"
+              type="text"
+              autofocus="true"
+              placeholder="Enter Organization URL"
+              maxlength="75"
+              required
+            />
+            <button type="submit">Go</button>
+          </form>
+          <div class="contributors-list" data-area="contributors"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
