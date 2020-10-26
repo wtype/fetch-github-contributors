@@ -32,7 +32,7 @@ async function getAllRepositories(organization) {
   const url = `https://api.github.com/orgs/${organization}/repos`;
   const repos = await useFetch(url);
 
-  repos.forEach((repo) => {
+  repos.forEach(repo => {
     repositories.push(repo.name);
   });
 
@@ -40,14 +40,14 @@ async function getAllRepositories(organization) {
 }
 
 const getAllUrls = (organization, repositories) =>
-  repositories.map((repo) => `https://api.github.com/repos/${organization}/${repo}/contributors`);
+  repositories.map(repo => `https://api.github.com/repos/${organization}/${repo}/contributors`);
 
 async function getAllContributors(urls) {
   const contributors = {};
   const promises = await Promise.all(urls.map(useFetch));
 
-  promises.forEach((list) => {
-    list.forEach((contributor) => {
+  promises.forEach(list => {
+    list.forEach(contributor => {
       const { id, login, avatar_url: avatar, url } = contributor;
       if (login.includes('dependabot')) return;
       contributors[`${id}`] = `${login}|${avatar}|${url}`;
@@ -59,7 +59,7 @@ async function getAllContributors(urls) {
 
 function createElements(contributors) {
   const contributorsArea = document.querySelector('[data-area="contributors"]');
-  Object.values(contributors).forEach((contributor) => {
+  Object.values(contributors).forEach(contributor => {
     const [user, avatar, url] = contributor.split('|');
 
     const a = document.createElement('a');
@@ -84,7 +84,6 @@ async function gatherData(organization) {
   const repositories = await getAllRepositories(organization);
   const urls = getAllUrls(organization, repositories);
   const contributors = await getAllContributors(urls);
-  console.log('contributors', contributors);
 
   return contributors;
 }
@@ -99,7 +98,7 @@ function isValidUrl(string) {
   return true;
 }
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', event => {
   event.preventDefault();
 
   const data = new FormData(form);
@@ -120,7 +119,7 @@ form.addEventListener('submit', (event) => {
 
     gatherData(organization)
       .then(createElements)
-      .catch((error) => alert(`Error: ${error.message}`));
+      .catch(error => alert(`Error: ${error.message}`));
   } else {
     alert('Please enter a valid URL');
     return;
