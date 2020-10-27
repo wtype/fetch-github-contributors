@@ -65,6 +65,8 @@ function createElements(contributors) {
     const a = document.createElement('a');
     a.classList.add('contributor');
     a.href = url;
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener noreferrer nofollow');
 
     const image = new Image();
     image.src = avatar;
@@ -106,7 +108,7 @@ form.addEventListener('submit', event => {
 
   if (isValidUrl(url)) {
     const typeURL = new URL(url);
-    if (typeURL.origin !== 'https://github.com') {
+    if (typeURL.host !== 'github.com') {
       alert('Please enter a Github Organization URL');
       return;
     }
