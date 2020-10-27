@@ -1,3 +1,4 @@
+const contributorsArea = document.querySelector('[data-area="contributors"]');
 const image = document.querySelector('#background');
 const form = document.querySelector('form');
 
@@ -58,7 +59,6 @@ async function getAllContributors(urls) {
 }
 
 function createElements(contributors) {
-  const contributorsArea = document.querySelector('[data-area="contributors"]');
   Object.values(contributors).forEach(contributor => {
     const [user, avatar, url] = contributor.split('|');
 
@@ -102,6 +102,10 @@ function isValidUrl(string) {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
+
+  contributorsArea.querySelectorAll('a').forEach(anchor => {
+    anchor.remove();
+  });
 
   const data = new FormData(form);
   const url = data.get('url');
